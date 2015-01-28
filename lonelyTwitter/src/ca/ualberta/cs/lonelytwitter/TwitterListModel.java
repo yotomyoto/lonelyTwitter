@@ -1,6 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TwitterListModel {
 	
@@ -17,7 +18,23 @@ public class TwitterListModel {
 	}
 	
 	public void addTweet(LonelyTweetModel tweet){
+		if(hasTweet(tweet)){
+			throw new IllegalArgumentException();
+		}
 		tweets.add(tweet);
 		count++;
+	}
+
+	/*not done
+	public LonelyTweetModel[] gettweets(){
+	}
+	*/
+	
+	public boolean hasTweet(LonelyTweetModel tweet){
+		return tweets.contains(tweet);
+	}
+	
+	public void removeTweet(LonelyTweetModel tweet){
+		tweets.remove(tweet);
 	}
 }

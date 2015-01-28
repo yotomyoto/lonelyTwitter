@@ -2,6 +2,8 @@ package ca.ualberta.cs.lonelytwitter.test;
 
 import java.util.Date;
 
+import ca.ualberta.cs.lonelytwitter.ImportantTweetModel;
+import ca.ualberta.cs.lonelytwitter.LonelyTweetModel;
 import ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity;
 import ca.ualberta.cs.lonelytwitter.NormalTweetModel;
 import android.test.ActivityInstrumentationTestCase2;
@@ -27,6 +29,14 @@ public class lonelyTweetModelTest extends ActivityInstrumentationTestCase2<Lonel
 		NormalTweetModel normal = new NormalTweetModel("test tweet", date);
 		NormalTweetModel secondTweet = new NormalTweetModel("test tweet");
 		assertFalse("Different Tweets are not equal", normal.equals(secondTweet));
+		normal = new NormalTweetModel("test tweet2", date);
+		secondTweet = new NormalTweetModel("test tweet", date);
+		assertFalse("Different Tweets are not equal", normal.equals(secondTweet));
+		normal = new NormalTweetModel("test tweet", date);
+		secondTweet = new NormalTweetModel("test tweet", date);
+		assertTrue("Similar tweets are not different", normal.equals(secondTweet));
+		ImportantTweetModel important = new ImportantTweetModel("test tweet",date);
+		assertFalse("Tweets of different type are not equal", important.equals(normal));
 	}
 	
 	public boolean greaterThan(int i, int j)

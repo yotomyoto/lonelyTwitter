@@ -8,6 +8,8 @@ import android.test.ActivityInstrumentationTestCase2;
 public class TweetListModelTests extends
 		ActivityInstrumentationTestCase2<LonelyTwitterActivity> {
 
+	private TwitterListModel tweets;
+	
 	public TweetListModelTests() {
 		super(LonelyTwitterActivity.class);
 		// TODO Auto-generated constructor stub
@@ -15,15 +17,14 @@ public class TweetListModelTests extends
 
 	protected void setUp() throws Exception {
 		super.setUp();
+		tweets = new TwitterListModel();
 	}
 
 	public void tweetsListsInitailisation(){
-		TwitterListModel tweets = new TwitterListModel();
 		assertNotNull("Is my arraylist not initialised?", tweets);
 	}
 	
 	public void testListCount(){
-		TwitterListModel tweets= new TwitterListModel();
 		NormalTweetModel tweet = new NormalTweetModel("hi");
 		tweets.addTweet(tweet);
 		assertEquals("Added a tweet", 1, tweets.getListLength());
