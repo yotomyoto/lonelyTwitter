@@ -46,6 +46,12 @@ public class LonelyTwitterActivityUITest extends
 		assertEquals("Text?","Text", textInput.getText().toString());
 	}
 	
+	public void makeTweetTest(){
+		makeTweet("Hello");
+		activity.oldTweetsList;
+		
+	}
+	
 	
 	/*
 	 * fills in the input text field and clicks the 'save'

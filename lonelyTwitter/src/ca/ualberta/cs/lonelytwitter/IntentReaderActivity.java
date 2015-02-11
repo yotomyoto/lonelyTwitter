@@ -28,7 +28,12 @@ public class IntentReaderActivity extends Activity {
 		TextView textView = (TextView) findViewById(R.id.intentText);
 		Intent intent = getIntent();
 		mode = intent.getIntExtra(TRANSFORM_KEY, NORMAL);
-		text = transformText(intent.getStringExtra(TEXT_KEY));
+		if(intent.hasExtra(TEXT_KEY)){
+			text = transformText(intent.getStringExtra(TEXT_KEY));
+		}
+		else{
+			text="No message sent";
+		}
 		textView.setText(text);
 	}
 	
